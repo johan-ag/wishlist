@@ -29,7 +29,10 @@ func main() {
 	})
 	auth := app.Group("/api/auth")
 	{
-		auth.POST("/sign-in", authHandler.Login())
+		auth.POST("/sign-in", func(c *gin.Context) {
+
+		}, 
+		authHandler.Login())
 		auth.POST("/sign-up", authHandler.Register())
 	}
 	app.Run()

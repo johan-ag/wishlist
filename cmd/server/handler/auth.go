@@ -55,6 +55,10 @@ func (h *auth) Register() gin.HandlerFunc {
 
 		_, err = h.authService.Register(user)
 		if err != nil {
+			if err.Error() == "This user already existed" {
+				c.AbortWithStatus(http.StatusConflict)
+				return
+			}
 			c.AbortWithStatus(http.StatusBadRequest)
 			return
 		}

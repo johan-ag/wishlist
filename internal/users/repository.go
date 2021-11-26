@@ -43,7 +43,7 @@ func (r *repository) GetUserByEmail(email string) (User, error) {
 }
 
 func (r *repository) CreateUser(user User) (User, error) {
-	_, err := r.GetUser(user.ID)
+	_, err := r.GetUserByEmail(user.Email)
 
 	if err == nil {
 		return user, errors.New("This user already existed")
