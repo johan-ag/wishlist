@@ -15,4 +15,7 @@ This project use these libraries
     # GODOTENV
     go get github.com/joho/godotenv
 
+    # Bcrypt
+    golang.org/x/crypto/bcrypt
+
 ```
